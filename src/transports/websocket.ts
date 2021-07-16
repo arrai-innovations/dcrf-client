@@ -5,9 +5,6 @@ import autobind from 'autobind-decorator';
 import {ITransport} from '../interface';
 
 
-const log = console;
-
-
 /**
  * Transport backed by a reconnecting websocket
  */
@@ -34,11 +31,9 @@ class WebsocketTransport extends EventEmitter implements ITransport {
   @autobind
   public connect() {
     if (this.socket != null) {
-      log.debug('Attempt to connect already-connected socket ignored (%s)', this.url);
       return false;
     }
 
-    log.info('Connecting to websocket at %s', this.url);
     this.socket = new ReconnectingWebsocket(this.url, [], this.options);
 
     this.socket.addEventListener('message', this.handleMessage);
