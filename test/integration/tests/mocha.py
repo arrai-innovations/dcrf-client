@@ -15,7 +15,7 @@ from py._path.local import LocalPath
 
 from tests.live_server import LiveServer
 
-logger = logging.getLogger(__name__)
+logger = console
 
 
 SCRIPT_PATH = Path(__file__)

@@ -1,7 +1,6 @@
 import autobind from 'autobind-decorator';
 import uniqBy from 'lodash.uniqby';
 
-import {getLogger} from './logging';
 import FifoDispatcher from './dispatchers/fifo';
 
 import {
@@ -26,7 +25,7 @@ import {SubscriptionPromise} from './subscriptions';
 import WebsocketTransport from './transports/websocket';
 
 
-const log = getLogger('dcrf');
+const log = console;
 
 
 interface ISubscriptionDescriptor<S, P extends S> {

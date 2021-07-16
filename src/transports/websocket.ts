@@ -2,11 +2,10 @@ import {EventEmitter} from 'events';
 import ReconnectingWebsocket, { Event } from 'reconnecting-websocket';
 import autobind from 'autobind-decorator';
 
-import { getLogger } from '../logging';
 import {ITransport} from '../interface';
 
 
-const log = getLogger('dcrf.transports.websocket');
+const log = console;
 
 
 /**

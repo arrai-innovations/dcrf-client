@@ -1,10 +1,9 @@
 import autobind from 'autobind-decorator';
 
-import { getLogger } from '../logging';
 import { ISendQueue } from '../interface';
 import BaseSendQueue from './base';
 
-const log = getLogger('dcrf.send_queues.fifo');
+const log = console;
 
 
 export

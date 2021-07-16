@@ -2,25 +2,7 @@ import fs from "fs";
 
 import chai, {expect} from 'chai';
 import chaiSubset from 'chai-subset';
-import {format, transports} from 'winston';
 chai.use(chaiSubset);
-
-import {rootLogger, getLogger} from '../../../src/logging';
-
-// Enable all logging
-rootLogger.level = 'debug';
-// Print all logs to stderr, so pytest may parrot them
-rootLogger
-  .clear()
-  .add(new transports.Console({
-    level: 'silly',
-    stderrLevels: Object.keys(rootLogger.levels),
-  }));
-// And colorize, for style
-rootLogger.format = format.combine(
-  format.colorize(),
-  rootLogger.format,
-);
 
 import WebSocket from 'ws';
 
@@ -28,7 +10,7 @@ import dcrf, {DCRFClient} from '../../../src/';
 import {DCRFGlobal} from '../../global';
 
 
-const log = getLogger('dcrf.test.integration');
+const log = console;
 
 
 declare const global: DCRFGlobal;
